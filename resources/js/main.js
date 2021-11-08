@@ -12,11 +12,11 @@ $(document).ready(function() {
             let now = new Date().getTime(),
                 distance = countDown - now;
     
-            document.getElementById("seconds").innerText = Math.floor((distance % (minute)) / second) + " Detik";
+            document.getElementById("seconds").innerText = "00:00:0"+ Math.floor((distance % (minute)) / second);
             
             //do something later when date is reached
             if (distance <= 0) {
-            // window.location.replace(baseUrl+"done");
+                window.location.replace(baseUrl+"result");
             clearInterval(x);
             }
             //seconds
@@ -36,5 +36,6 @@ $(document).ready(function() {
         document.getElementById("mainImg").src = baseUrl + "resources/img/main-reset.jpg";
         let terms = new Date().getTime();
         countDown = new Date((terms + 9000))
-      });
+    });
+
 });
