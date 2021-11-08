@@ -9,12 +9,12 @@ class Welcome extends CI_Controller {
 
 	public function index()
 	{
-		// $jsonSource = file_get_contents('data.json');
-		// $dataLeader = json_decode($jsonSource);
+		$jsonSource = file_get_contents('data.json');
+		$dataLeader = json_decode($jsonSource);
 		
-		// usort($dataLeader, function($object1, $object2) {
-		// 	return $object1->value < $object2->value;
-		// });
+		usort($dataLeader, function($object1, $object2) {
+			return $object1->value < $object2->value;
+		});
 
 		$data['leaderboard'] = $dataLeader;
 		$this->load->view('header');
