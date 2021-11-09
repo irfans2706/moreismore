@@ -38,4 +38,7 @@ $(document).ready(function() {
         countDown = new Date((terms + 9000))
     });
 
+    setTimeout(function() {
+        $("#resultTime").removeClass("d-none");
+      }, 2000);
 });

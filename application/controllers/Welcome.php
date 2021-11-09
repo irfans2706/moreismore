@@ -50,41 +50,44 @@ class Welcome extends CI_Controller {
 
 	public function result()
 	{
-		$dataSession = $this->session->userdata();
-		if($dataSession["is_login"] != 1){
-			redirect("/");
-		}
+		// $dataSession = $this->session->userdata();
+		// if($dataSession["is_login"] != 1){
+		// 	redirect("/");
+		// }
 
-		date_default_timezone_set("Asia/Jakarta");
-		$secondsTime = strtotime(date("Y-m-d H:i:s")) - strtotime($dataSession["start_date"]);
-		$hours   = floor(($secondsTime - ($days * 86400)) / 3600);
-		$minutes = floor(($secondsTime - ($days * 86400) - ($hours * 3600))/60);
-		$seconds = floor(($secondsTime - ($days * 86400) - ($hours * 3600) - ($minutes*60)));
+		// date_default_timezone_set("Asia/Jakarta");
+		// $secondsTime = strtotime(date("Y-m-d H:i:s")) - strtotime($dataSession["start_date"]);
+		// $hours   = floor(($secondsTime - ($days * 86400)) / 3600);
+		// $minutes = floor(($secondsTime - ($days * 86400) - ($hours * 3600))/60);
+		// $seconds = floor(($secondsTime - ($days * 86400) - ($hours * 3600) - ($minutes*60)));
 
-		$dataInput = array(
-			"name" => $dataSession["name"],
-        	"time" => sprintf("%02d", $hours).":".sprintf("%02d", $minutes).":".sprintf("%02d", $seconds),
-        	"value" => $secondsTime
-		);
+		// $dataInput = array(
+		// 	"name" => $dataSession["name"],
+        // 	"time" => sprintf("%02d", $hours).":".sprintf("%02d", $minutes).":".sprintf("%02d", $seconds),
+        // 	"value" => $secondsTime
+		// );
 		
-		$dataInput = json_encode($dataInput);
+		// $dataInput = json_encode($dataInput);
 
-		$url = "https://moreismore-d8ad8-default-rtdb.asia-southeast1.firebasedatabase.app/data.json";
-		$ch = curl_init();
-		curl_setopt($ch, CURLOPT_URL, $url);                               
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-		curl_setopt($ch, CURLOPT_POST, 1);
-		curl_setopt($ch, CURLOPT_POSTFIELDS, $dataInput);
-		curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: text/plain'));
-		$jsonResponse = curl_exec($ch);
-		if(curl_errno($ch))
-		{
-			echo 'Curl error: ' . curl_error($ch);
-		}
-		curl_close($ch);
+		// $url = "https://moreismore-d8ad8-default-rtdb.asia-southeast1.firebasedatabase.app/data.json";
+		// $ch = curl_init();
+		// curl_setopt($ch, CURLOPT_URL, $url);                               
+		// curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		// curl_setopt($ch, CURLOPT_POST, 1);
+		// curl_setopt($ch, CURLOPT_POSTFIELDS, $dataInput);
+		// curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: text/plain'));
+		// $jsonResponse = curl_exec($ch);
+		// if(curl_errno($ch))
+		// {
+		// 	echo 'Curl error: ' . curl_error($ch);
+		// }
+		// curl_close($ch);
 
-		session_destroy();
+		// session_destroy();
+
 		$data["time"] = sprintf("%02d", $hours).":".sprintf("%02d", $minutes).":".sprintf("%02d", $seconds);
+		$data["time"] = "00:09:00";
+		$data["version"] = rand(10,1000);
 		$this->load->view('header');
 		$this->load->view('result',$data);
 		$this->load->view('footer');
