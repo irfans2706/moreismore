@@ -9,30 +9,8 @@ class Welcome extends CI_Controller {
 
 	public function index()
 	{
-		$url = "https://moreismore-d8ad8-default-rtdb.asia-southeast1.firebasedatabase.app/data.json";
-		$ch = curl_init();
-		curl_setopt_array($ch, array(
-			CURLOPT_URL => $url,
-			CURLOPT_RETURNTRANSFER => true,
-			CURLOPT_ENCODING => '',
-			CURLOPT_MAXREDIRS => 10,
-			CURLOPT_TIMEOUT => 0,
-			CURLOPT_FOLLOWLOCATION => true,
-			CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-			CURLOPT_CUSTOMREQUEST => 'GET',
-		));
-
-		$jsonResponse = curl_exec($ch);
-		$dataLeader = json_decode($jsonResponse, true);
-		$dataLeader = array_values($dataLeader);
-		
-		usort($dataLeader, function($object1, $object2) {
-			return $object1['value'] < $object2['value'];
-		});
-
-		$data['leaderboard'] = $dataLeader;
 		$this->load->view('header');
-		$this->load->view('index', $data);
+		$this->load->view('index');
 		$this->load->view('footer');
 	}
 
@@ -85,6 +63,28 @@ class Welcome extends CI_Controller {
 
 		session_destroy();
 
+		$url = "https://moreismore-d8ad8-default-rtdb.asia-southeast1.firebasedatabase.app/data.json";
+		$ch = curl_init();
+		curl_setopt_array($ch, array(
+			CURLOPT_URL => $url,
+			CURLOPT_RETURNTRANSFER => true,
+			CURLOPT_ENCODING => '',
+			CURLOPT_MAXREDIRS => 10,
+			CURLOPT_TIMEOUT => 0,
+			CURLOPT_FOLLOWLOCATION => true,
+			CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+			CURLOPT_CUSTOMREQUEST => 'GET',
+		));
+
+		$jsonResponse = curl_exec($ch);
+		$dataLeader = json_decode($jsonResponse, true);
+		$dataLeader = array_values($dataLeader);
+		
+		usort($dataLeader, function($object1, $object2) {
+			return $object1['value'] < $object2['value'];
+		});
+
+		$data['leaderboard'] = $dataLeader;
 		$data["time"] = sprintf("%02d", $hours).":".sprintf("%02d", $minutes).":".sprintf("%02d", $seconds);
 		$data["version"] = rand(10,1000);
 		$this->load->view('header');

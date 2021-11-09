@@ -1,6 +1,7 @@
 $(document).ready(function() {
     let baseUrl = document.getElementById("baseUrl").value;
     let countDown = new Date().getTime();
+    let termsAnimate = false;
     countDown = new Date((countDown + 9000))
 
     const second = 1000,
@@ -25,15 +26,26 @@ $(document).ready(function() {
     let indexInterval = 1;
     var intervalId = window.setInterval(function(){
         if(indexInterval%2 == 1){
-            document.getElementById("mainImg").src = baseUrl + "resources/img/main-1.jpg"; 
+            if(!termsAnimate){
+                document.getElementById("mainImg").src = baseUrl + "resources/img/main-1.jpg"; 
+            }else{
+                document.getElementById("mainImg").src = baseUrl + "resources/img/main-reset.jpg";
+                setTimeout(function() {
+                    termsAnimate = false;
+                }, 2000);
+            }
         }else{
-            document.getElementById("mainImg").src = baseUrl + "resources/img/main-2.jpg"; 
+            if(!termsAnimate){
+                document.getElementById("mainImg").src = baseUrl + "resources/img/main-2.jpg"; 
+            }else{
+                document.getElementById("mainImg").src = baseUrl + "resources/img/main-reset-2.jpg"; 
+            }
         }
         indexInterval++;
     }, 500);
 
     $( "#mainImg" ).click(function() {
-        document.getElementById("mainImg").src = baseUrl + "resources/img/main-reset.jpg";
+        termsAnimate = true;
         let terms = new Date().getTime();
         countDown = new Date((terms + 9000))
     });
@@ -41,4 +53,11 @@ $(document).ready(function() {
     setTimeout(function() {
         $("#resultTime").removeClass("d-none");
       }, 2000);
+
+    $(document).bind('mousemove', function(e){
+        $('#seconds').css({
+            left: e.pageX + 5,
+            top: e.pageY - 20
+        });
+    });
 });
