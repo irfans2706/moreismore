@@ -9,12 +9,24 @@ class Welcome extends CI_Controller {
 
 	public function index()
 	{
-		$jsonSource = file_get_contents('data.json');
-		$dataLeader = json_decode($jsonSource);
+		$url = "https://moreismore-d8ad8-default-rtdb.asia-southeast1.firebasedatabase.app/data.json";
+		$ch = curl_init();
+		curl_setopt_array($ch, array(
+			CURLOPT_URL => $url,
+			CURLOPT_RETURNTRANSFER => true,
+			CURLOPT_ENCODING => '',
+			CURLOPT_MAXREDIRS => 10,
+			CURLOPT_TIMEOUT => 0,
+			CURLOPT_FOLLOWLOCATION => true,
+			CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+			CURLOPT_CUSTOMREQUEST => 'GET',
+		));
+
+		$jsonResponse = curl_exec($ch);
+		$dataLeader = json_decode($jsonResponse);
 		
-		usort($dataLeader, function($object1, $object2) {
-			return $object1->value < $object2->value;
-		});
+		$dataLeader = new ArrayObject($dataLeader);
+		$dataLeader->asort();
 
 		$data['leaderboard'] = $dataLeader;
 		$this->load->view('header');
@@ -53,16 +65,21 @@ class Welcome extends CI_Controller {
         	"value" => $secondsTime
 		);
 		
-		$inp = file_get_contents('data.json');
-		$tempArray = json_decode($inp);
-		
-		if(count($tempArray) == 0){
-			$jsonData = json_encode(array($dataInput));
-		}else{
-			array_push($tempArray, $dataInput);
-			$jsonData = json_encode($tempArray);
+		$dataInput = json_encode($dataInput);
+
+		$url = "https://moreismore-d8ad8-default-rtdb.asia-southeast1.firebasedatabase.app/data.json";
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL, $url);                               
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_POST, 1);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $dataInput);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: text/plain'));
+		$jsonResponse = curl_exec($ch);
+		if(curl_errno($ch))
+		{
+			echo 'Curl error: ' . curl_error($ch);
 		}
-		file_put_contents('data.json', $jsonData);
+		curl_close($ch);
 
 		session_destroy();
 		$data["time"] = sprintf("%02d", $hours).":".sprintf("%02d", $minutes).":".sprintf("%02d", $seconds);
