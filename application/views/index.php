@@ -13,7 +13,7 @@
         <hr class="my-2">
         <div class="container-fluid">
             <?php $no=1; foreach($leaderboard as $index => $row): 
-                if($index <=5 ):?>
+                if($no <=5 ):?>
                 <div class="row">
                     <div class="col-8 px-0">
                         <p class="mb-0"><?=$no++?>. <?=$row->name?></p>
