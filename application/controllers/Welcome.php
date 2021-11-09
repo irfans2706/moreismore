@@ -23,10 +23,12 @@ class Welcome extends CI_Controller {
 		));
 
 		$jsonResponse = curl_exec($ch);
-		$dataLeader = json_decode($jsonResponse);
+		$dataLeader = json_decode($jsonResponse, true);
+		$dataLeader = array_values($dataLeader);
 		
-		$dataLeader = new ArrayObject($dataLeader);
-		$dataLeader->asort();
+		usort($dataLeader, function($object1, $object2) {
+			return $object1['value'] < $object2['value'];
+		});
 
 		$data['leaderboard'] = $dataLeader;
 		$this->load->view('header');

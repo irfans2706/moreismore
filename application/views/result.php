@@ -12,7 +12,7 @@
     </div>
     <div class="row justify-content-center">
         <div class="col-12 col-md-6 col-lg-4 text-center">
-            <p style="font-size: 20px;">pandagan kedepan! kamu baru saja ketinggalan kereta. ingin mengejarnya ?</p>
+            <p style="font-size: 20px;">pandangan kedepan! kamu baru saja ketinggalan kereta. ingin mengejarnya ?</p>
             <a href="<?=base_url()?>" style="font-size: 20px;" class="text-danger">coba lagi</a>
         </div>
     </div>

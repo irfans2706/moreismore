@@ -12,12 +12,12 @@ $(document).ready(function() {
             let now = new Date().getTime(),
                 distance = countDown - now;
     
-            document.getElementById("seconds").innerText = "00:00:0"+ Math.floor((distance % (minute)) / second);
+            document.getElementById("seconds").innerText = "00:00:0"+ (distance > 0 ? Math.floor((distance % (minute)) / second) : 0);
             
             //do something later when date is reached
             if (distance <= 0) {
+                clearInterval(x);
                 window.location.replace(baseUrl+"result");
-            clearInterval(x);
             }
             //seconds
         }, 0)
