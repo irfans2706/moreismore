@@ -1,4 +1,4 @@
-<div class="container-fluid" style="margin-top: 2rem; position: relative">
+<div class="container-fluid" id="resultPage" style="margin-top: 2rem; position: relative">
     <div class="row justify-content-center">
         <div class="col-12 col-md-6 col-lg-4 text-center">
             <p style="font-size: 20px;">rentang perhatianmu:</p>
@@ -10,13 +10,13 @@
             <p id="resultTime" class="d-none" style="position: absolute;top: 30%;left: 50%;transform: translate(-50%, -30%); font-size: 40px; color: black;"><?=$time?></p>
         </div>
     </div>
-    <div class="row justify-content-center" style="margin-top: -4rem;">
+    <div class="row justify-content-center desc d-none" style="margin-top: -4rem;">
         <div class="col-12 col-md-6 col-lg-4 text-center">
             <p style="font-size: 20px;">pandangan kedepan! kamu baru saja ketinggalan kereta. ingin mengejarnya ?</p>
             <a href="<?=base_url()?>" style="font-size: 20px;" class="text-danger">coba lagi</a>
         </div>
     </div>
-    <div class="p-3 d-none d-md-block d-lg-block" style="position: absolute; left: 10px; top: 10px; border: 1px solid black; border-radius: 2\10px;">
+    <div class="p-3 d-none d-md-none d-lg-none leaderboard-desktop" style="position: absolute; left: 10px; top: 10px; border: 1px solid black; border-radius: 2\10px;">
         <p style="font-size: 20px; font-align: center; width:200px;" class="mb-0 text-center">Leaderboard</p>
         <hr class="my-2">
         <div class="container-fluid">
@@ -35,7 +35,7 @@
             endforeach; ?>
         </div>
     </div>
-    <div class="row justify-content-center d-md-none d-lg-none" style="margin-top: 1rem;">
+    <div class="row justify-content-center d-md-none d-lg-none leaderboard d-none" style="margin-top: 1rem;">
         <div class="col-12">
             <div class="p-3 " style="border: 1px solid black;">
                 <p style="font-size: 20px; font-align: center;" class="mb-0 text-center">Leaderboard</p>

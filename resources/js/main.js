@@ -50,6 +50,15 @@ $(document).ready(function() {
         countDown = new Date((terms + 9000))
     });
 
+    $( "#resultPage" ).click(function() {
+        $(".leaderboard-desktop").removeClass("d-md-none");
+        $(".leaderboard-desktop ").removeClass("d-lg-none");
+        $(".leaderboard-desktop ").addClass("d-md-block");
+        $(".leaderboard-desktop ").addClass("d-lg-block");
+        $(".leaderboard ").removeClass("d-none");
+        $(".desc ").removeClass("d-none");
+    });
+
     setTimeout(function() {
         $("#resultTime").removeClass("d-none");
       }, 2000);
