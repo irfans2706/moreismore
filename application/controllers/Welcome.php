@@ -20,9 +20,10 @@ class Welcome extends CI_Controller {
 		if($dataSession["is_login"] != 1){
 			redirect("/");
 		}
-
+		
+		$data["version"] = rand(10,1000);
 		$this->load->view('header');
-		$this->load->view('main');
+		$this->load->view('main', $data);
 		$this->load->view('footer');
 	}
 
@@ -98,13 +99,11 @@ class Welcome extends CI_Controller {
 		date_default_timezone_set("Asia/Jakarta");
 		$now = date("Y-m-d H:i:s");
 
-		// $seconds = strtotime("2021-11-08 09:10:00") - strtotime("2021-11-08 08:45:00");
+		$seconds = strtotime("2021-11-08 09:10:00") - strtotime("2021-11-08 08:45:00");
 
-		// $hours   = floor(($seconds - ($days * 86400)) / 3600);
-		// $minutes = floor(($seconds - ($days * 86400) - ($hours * 3600))/60);
-		// $seconds = floor(($seconds - ($days * 86400) - ($hours * 3600) - ($minutes*60)));
-
-		// var_dump(sprintf("%02d", $hours).":".sprintf("%02d", $minutes).":".sprintf("%02d", $seconds)); exit();
+		$hours   = floor(($seconds - ($days * 86400)) / 3600);
+		$minutes = floor(($seconds - ($days * 86400) - ($hours * 3600))/60);
+		$seconds = floor(($seconds - ($days * 86400) - ($hours * 3600) - ($minutes*60)));
 
 		$newdata = array(
 			'is_login'  => 1,

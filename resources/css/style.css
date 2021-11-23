@@ -2050,6 +2050,74 @@ img {
     }
 }
 
-#seconds{
+#seconds, #secondsLabel{
     position: absolute;
+    z-index: 1;
+}
+
+#secondsLabel{
+    left: 12px;
+    top: 45px;
+}
+
+aside {
+    position: absolute;
+    left: 0;
+    top: 0;
+    /* set these so Chrome doesn't return 'auto' from getComputedStyle */
+    width: 200px;
+    background: rgba(255, 255, 255, 1);
+    border: 2px solid rgba(0, 0, 0, 1);
+    border-radius: 4px;
+    padding: 8px;
+}
+
+aside:hover{
+    cursor: pointer;
+}
+
+aside:active{
+    cursor: grabbing;
+}
+
+.second {
+    left: 100px;
+    top: 100px;
+}
+
+body, html {
+    min-height: 100vh;
+}
+
+::-webkit-input-placeholder{
+    color: white;
+}
+
+::-moz-placeholder{
+    color: white;
+}
+
+::placeholder {
+    color: white;
+}
+
+#mainImg{
+    /* filter: blur(5px); */
+    transition: all 1.3s ease;
+}
+
+#mainImg:hover{
+    /* filter: blur(0px); */
+    /* transform: scale(1.8); */
+    /* transform-origin: bottom right; */
+}
+
+.distraction1{
+    transform: scale(1.8);
+    transform-origin: top left;
+}
+
+.distraction2{
+    transform: scale(1.8);
+    transform-origin: bottom right;
 }
