@@ -43,7 +43,7 @@
         <div class="col-12">
             <div class="p-3 " style="border: 1px solid black;">
                 <p style="font-size: 20px; font-align: center;" class="mb-0 text-center text-white">Leaderboard</p>
-                <hr class="my-2">
+                <hr class="my-2" style="border-color: white">
                 <div class="container-fluid">
                     <?php $no=1; foreach($leaderboard as $index => $row):
                         if($no <=6 ):?>
