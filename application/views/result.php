@@ -27,10 +27,10 @@
             <?php $no=1; foreach($leaderboard as $index => $row):
                 if($no <=6 ):?>
                 <div class="row">
-                    <div class="col-8 px-0">
+                    <div class="col-8 px-1">
                         <p class="mb-0 text-white"><?=$no++?>. <?=$row['name']?></p>
                     </div>
-                    <div class="col-4 px-0">
+                    <div class="col-4 px-1">
                         <p class="mb-0 text-white"><?=$row['time']?></p>
                     </div>
                 </div>
