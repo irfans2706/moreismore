@@ -98,8 +98,8 @@ $(document).ready(function() {
             top: e.pageY - 20
         });
         $('#secondsLabel').css({
-            left: e.pageX + 5 + 12,
-            top: e.pageY - 20 + 45
+            left: e.pageX + 5 + 9,
+            top: e.pageY - 20 + 28
         });
     });
 
