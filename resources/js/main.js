@@ -4,7 +4,7 @@ $(document).ready(function() {
     let termsAnimate = false;
     countDown = new Date((countDown + 9000))
     let termsDistraction = true
-    let termsPlay = true
+    let termsPlay = false
     const second = 1000,
             minute = second * 60,
             hour = minute * 60,
@@ -91,6 +91,11 @@ $(document).ready(function() {
         $("#seconds").removeClass("d-none");
         $("#secondsLabel").removeClass("d-none");
       }, 2000);
+
+    setTimeout(function() {
+        document.getElementById("mainImg").src = baseUrl + "resources/img/play.gif";
+        termsPlay = true;
+    }, 2000);
 
     $(document).bind('mousemove', function(e){
         $('#seconds').css({

@@ -2109,11 +2109,11 @@ body, html {
 .distraction1{
     transform: scale(1.8);
     transform-origin: top left;
-    filter: brightness(1.5);
+    filter: brightness(1.1);
 }
 
 .distraction2{
     transform: scale(1.8);
     transform-origin: bottom right;
-    filter: brightness(1.5);
+    filter: brightness(1.1);
 }
