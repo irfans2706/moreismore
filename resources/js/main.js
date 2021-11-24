@@ -29,10 +29,10 @@ $(document).ready(function() {
 
                 termsDistraction = true;
                 termsPlay = false;
-            }else if(distance < 3000){
+            }else if(distance < 6000){
                 if(termsDistraction){
                     if(distance%2 == 1){
-                        document.getElementById("mainImg").src = baseUrl + "resources/img/distraction1.gif";
+                        document.getElementById("mainImg").src = baseUrl + "resources/img/distraction1.jpg";
                         $("#mainImg").removeClass("distraction2");
                         $("#mainImg").addClass("distraction1");
                     }else{

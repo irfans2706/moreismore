@@ -2106,18 +2106,14 @@ body, html {
     transition: all 1.3s ease;
 }
 
-#mainImg:hover{
-    /* filter: blur(0px); */
-    /* transform: scale(1.8); */
-    /* transform-origin: bottom right; */
-}
-
 .distraction1{
     transform: scale(1.8);
     transform-origin: top left;
+    filter: brightness(1.5);
 }
 
 .distraction2{
     transform: scale(1.8);
     transform-origin: bottom right;
+    filter: brightness(1.5);
 }
