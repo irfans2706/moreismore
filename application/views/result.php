@@ -15,6 +15,11 @@
             <p id="resultTime" class="d-none" style="position: absolute;top: 31%;left: 48%;transform: translate(-48%, 31%); font-size: 40px; color: black;"><?=$time?></p>
         </div>
     </div>
+    <div class="row justify-content-center desc forMore" style="margin-top: -4rem;">
+        <div class="col-12 col-md-6 col-lg-4 text-center">
+            <p class="text-white" style="font-size: 20px; cursor: pointer;">click for more</p>
+        </div>
+    </div>
     <div class="row justify-content-center desc d-none" style="margin-top: -4rem;">
         <div class="col-12 col-md-6 col-lg-4 text-center">
             <p class="text-white" style="font-size: 20px;"><a href="<?=base_url()?>" style="font-size: 20px; color: #ef476e;" >coba lagi</a> atau coba kerjakan apa yang kamu tinggalkan sekarang ?</p>

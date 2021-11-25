@@ -32,7 +32,7 @@ $(document).ready(function() {
             }else if(distance < 6000){
                 if(termsDistraction){
                     if(distance%2 == 1){
-                        document.getElementById("mainImg").src = baseUrl + "resources/img/distraction1.jpg";
+                        document.getElementById("mainImg").src = baseUrl + "resources/img/distraction1.gif";
                         $("#mainImg").removeClass("distraction2");
                         $("#mainImg").addClass("distraction1");
                     }else{
@@ -81,6 +81,7 @@ $(document).ready(function() {
         $(".leaderboard-desktop ").addClass("d-lg-block");
         $(".leaderboard ").removeClass("d-none");
         $(".desc ").removeClass("d-none");
+        $(".forMore").addClass("d-none");
     });
 
     setTimeout(function() {

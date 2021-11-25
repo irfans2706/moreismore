@@ -6,6 +6,8 @@
                 <input type="text" name="name" class="text-white" placeholder="isi nama pemain" style="border-radius: 15px;background: transparent;text-align: center;font-size: 18px;border: 1px solid white;padding: 5px;width: 100%;display: block;" maxlength="15">
                 <button class="btn text-white" type="submit" style="margin-top: 30vh; background: transparent;">Klik untuk memulai</button>
             </form>
+            <img src="<?=base_url()?>resources/img/play.gif" class="d-none" alt="" style="width: 70%;">
+            <img src="<?=base_url()?>resources/img/distraction1.gif" class="d-none" alt="" style="width: 70%;">
         </div>
     </div>
 </div>
