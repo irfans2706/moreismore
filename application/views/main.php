@@ -30,6 +30,7 @@
             <img src="<?=base_url()?>resources/img/main.gif?v=<?=$version?>" id="mainImg" alt="" style="width: 100%;">
             <img src="<?=base_url()?>resources/img/play.gif" class="d-none" alt="" style="width: 70%;">
             <img src="<?=base_url()?>resources/img/distraction1.jpg" class="d-none" alt="" style="width: 70%;">
+            <img src="<?=base_url()?>resources/img/final.jpg" class="d-none" alt="" style="width: 70%;">
         </div>
     </div>
 </div>

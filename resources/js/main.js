@@ -34,9 +34,7 @@ $(document).ready(function() {
 
                 $("#mainImg").removeClass("distraction1");
                 $("#mainImg").removeClass("distraction2");
-                if(document.getElementById("mainImg").src != baseUrl + "resources/img/play.gif"){
-                    document.getElementById("mainImg").src = baseUrl + "resources/img/play.gif";
-                }
+                document.getElementById("mainImg").src = baseUrl + "resources/img/final.jpg";
 
                 setTimeout(function() {
                     window.location.replace(baseUrl+"result");
