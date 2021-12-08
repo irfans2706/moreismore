@@ -2050,7 +2050,7 @@ img {
     }
 }
 
-#seconds, #secondsLabel{
+#seconds, #secondsLabel, #thirdLabel{
     position: absolute;
     z-index: 1;
 }
@@ -2058,6 +2058,11 @@ img {
 #secondsLabel{
     left: 10px;
     top: 25px;
+}
+
+#thirdLabel{
+    left: -55px;
+    top: 20px;
 }
 
 aside {

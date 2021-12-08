@@ -6,6 +6,9 @@
 <div class="container-fluid text-white" id="resultPage" style="margin-top: 2rem; position: relative">
     <div class="row justify-content-center">
         <div class="col-12 col-md-6 col-lg-4 text-center">
+            <audio loop autoplay id="myaudio">
+                <source src="<?=base_url()?>resources/main.mp3" type="audio/mp3">
+            </audio>
             <p class="text-white" style="font-size: 20px;">rentang perhatianmu:</p>
         </div>
     </div>
@@ -17,7 +20,7 @@
     </div>
     <div class="row justify-content-center desc forMore" style="margin-top: -4rem;">
         <div class="col-12 col-md-6 col-lg-4 text-center">
-            <p class="text-white" style="font-size: 20px; cursor: pointer;">click for more</p>
+            <p class="text-white" style="font-size: 20px; cursor: pointer;">klik untuk lanjut</p>
         </div>
     </div>
     <div class="row justify-content-center desc d-none" style="margin-top: -4rem;">

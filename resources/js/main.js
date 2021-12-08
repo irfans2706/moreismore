@@ -5,6 +5,14 @@ $(document).ready(function() {
     countDown = new Date((countDown + 9000))
     let termsDistraction = true
     let termsPlay = false
+    let termsNotif = 1
+    var notif1 = document.getElementById("notif-1");
+    var notif2 = document.getElementById("notif-2");
+    var notif3 = document.getElementById("notif-3");
+    var notif4 = document.getElementById("notif-4");
+    var talkAudio = document.getElementById("talk");
+    var timerAudio = document.getElementById("timerAudio");
+
     const second = 1000,
             minute = second * 60,
             hour = minute * 60,
@@ -19,7 +27,21 @@ $(document).ready(function() {
             //do something later when date is reached
             if (distance <= 0) {
                 clearInterval(x);
-                window.location.replace(baseUrl+"result");
+                notif1.pause()
+                notif2.pause()
+                notif3.pause()
+                notif4.pause()
+
+                $("#mainImg").removeClass("distraction1");
+                $("#mainImg").removeClass("distraction2");
+                if(document.getElementById("mainImg").src != baseUrl + "resources/img/play.gif"){
+                    document.getElementById("mainImg").src = baseUrl + "resources/img/play.gif";
+                }
+
+                setTimeout(function() {
+                    window.location.replace(baseUrl+"result");
+                }, 3000);
+
             }else if(distance >= 6000 && termsPlay){
                 $("#mainImg").removeClass("distraction1");
                 $("#mainImg").removeClass("distraction2");
@@ -29,16 +51,41 @@ $(document).ready(function() {
 
                 termsDistraction = true;
                 termsPlay = false;
+                notif1.pause()
+                notif2.pause()
+                notif3.pause()
+                notif4.pause()
+                talkAudio.play()
             }else if(distance < 6000){
                 if(termsDistraction){
-                    if(distance%2 == 1){
+                    if(distance%2 == 0){
                         document.getElementById("mainImg").src = baseUrl + "resources/img/distraction1.gif";
                         $("#mainImg").removeClass("distraction2");
                         $("#mainImg").addClass("distraction1");
+                        talkAudio.pause()
                     }else{
                         document.getElementById("mainImg").src = baseUrl + "resources/img/play.gif";
                         $("#mainImg").removeClass("distraction1");
                         $("#mainImg").addClass("distraction2");
+                        talkAudio.pause()
+
+                        if(termsNotif == 1){
+                            notif1.play();
+                            termsNotif++;
+                        }else if(termsNotif == 2){
+                            notif2.play();
+                            termsNotif++;
+                        }else if(termsNotif == 3){
+                            notif3.play();
+                            termsNotif++;
+                        }else if(termsNotif == 4){
+                            notif4.play();
+                            termsNotif++;
+                        }
+
+                        if(termsNotif == 5){
+                            termsNotif = 1;
+                        }
                     }
                     termsDistraction = false;
                 }
@@ -68,6 +115,12 @@ $(document).ready(function() {
     }, 500);
 
     $( "#mainImg" ).click(function() {
+        timerAudio.volume = 0.5;
+        timerAudio.play();
+
+        $("#thirdLabel").fadeIn();
+        $("#thirdLabel").fadeOut();
+
         termsAnimate = true;
         termsPlay = true;
         let terms = new Date().getTime();
@@ -91,6 +144,8 @@ $(document).ready(function() {
     setTimeout(function() {
         $("#seconds").removeClass("d-none");
         $("#secondsLabel").removeClass("d-none");
+        $("#thirdLabel").removeClass("d-none");
+        $("#thirdLabel").fadeOut();
       }, 2000);
 
     setTimeout(function() {
@@ -106,6 +161,10 @@ $(document).ready(function() {
         $('#secondsLabel').css({
             left: e.pageX + 5 + 9,
             top: e.pageY - 20 + 28
+        });
+        $('#thirdLabel').css({
+            left: e.pageX + 5 - 35,
+            top: e.pageY - 20 + 20
         });
     });
 
@@ -134,4 +193,7 @@ $(document).ready(function() {
         document.body.addEventListener('dragover', drag_over, false);
         document.body.addEventListener('drop', drop, false);
     }
+
+    audio = document.getElementById("myaudio");
+    audio.volume = 0.2;
 });
