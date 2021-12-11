@@ -60,7 +60,6 @@ $(document).ready(function() {
                         document.getElementById("mainImg").src = baseUrl + "resources/img/distraction1.gif";
                         $("#mainImg").removeClass("distraction2");
                         $("#mainImg").addClass("distraction1");
-                        talkAudio.pause()
                     }else{
                         document.getElementById("mainImg").src = baseUrl + "resources/img/play.gif";
                         $("#mainImg").removeClass("distraction1");

@@ -15,7 +15,7 @@
         <source src="<?=base_url()?>resources/notif-4.mp3" type="audio/mp3">
     </audio>
     <audio loop autoplay id="talk">
-        <source src="<?=base_url()?>resources/talk.mp3" type="audio/mp3">
+        <source src="<?=base_url()?>resources/talk.mp3?v=1" type="audio/mp3">
     </audio>
     <audio id="timerAudio">
         <source src="<?=base_url()?>resources/timer.mp3" type="audio/mp3">

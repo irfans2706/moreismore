@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'https://moreismore.herokuapp.com/';
+$config['base_url'] = 'https://klikliklik.herokuapp.com/';
 
 /*
 |--------------------------------------------------------------------------
