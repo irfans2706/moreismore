@@ -116,9 +116,7 @@ $(document).ready(function() {
         timerAudio.play();
 
         $("#thirdLabel").fadeIn();
-        setTimeout(function() {
-            $("#thirdLabel").fadeOut();
-          }, 3000);
+        $("#thirdLabel").fadeOut();
 
         termsAnimate = true;
         termsPlay = true;
@@ -160,6 +158,10 @@ $(document).ready(function() {
         $('#secondsLabel').css({
             left: e.pageX + 5 + 9,
             top: e.pageY - 20 + 28
+        });
+        $('#thirdLabel').css({
+            left: e.pageX + 5 - 55,
+            top: e.pageY - 20 + 5
         });
     });
 
