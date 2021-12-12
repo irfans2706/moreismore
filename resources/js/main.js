@@ -37,7 +37,7 @@ $(document).ready(function() {
                 document.getElementById("mainImg").src = baseUrl + "resources/img/final.jpg";
 
                 setTimeout(function() {
-                    window.location.replace(baseUrl+"result");
+                    // window.location.replace(baseUrl+"result");
                 }, 3000);
 
             }else if(distance >= 6000 && termsPlay){
@@ -116,7 +116,9 @@ $(document).ready(function() {
         timerAudio.play();
 
         $("#thirdLabel").fadeIn();
-        $("#thirdLabel").fadeOut();
+        setTimeout(function() {
+            $("#thirdLabel").fadeOut();
+          }, 3000);
 
         termsAnimate = true;
         termsPlay = true;
@@ -158,10 +160,6 @@ $(document).ready(function() {
         $('#secondsLabel').css({
             left: e.pageX + 5 + 9,
             top: e.pageY - 20 + 28
-        });
-        $('#thirdLabel').css({
-            left: e.pageX + 5 - 35,
-            top: e.pageY - 20 + 20
         });
     });
 

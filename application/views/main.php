@@ -22,9 +22,7 @@
     </audio>
     <img src="<?=base_url()?>resources/img/timer.png" class="d-none" alt="" id="seconds" width="70px">
     <p class="text-danger d-none" id="secondsLabel" style="font-size: 14px;z-index: 2;"></p>
-    <p class="text-danger d-none" id="thirdLabel" style="position: fixed; font-size: 14px;z-index: 2;"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
-  <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-</svg></p>
+    <img src="<?=base_url()?>resources/plus.gif" class="text-danger d-none" id="thirdLabel" style="position: fixed;font-size: 14px;z-index: 2;display: none;right: 50px;bottom: 50px;width: 110px;" width="70px">
     <div class="row justify-content-center">
         <div class="col-12 text-center mainFrame p-0">
             <img src="<?=base_url()?>resources/img/main.gif?v=<?=$version?>" id="mainImg" alt="" style="width: 100%;">
