@@ -16,10 +16,10 @@ class Welcome extends CI_Controller {
 
 	public function main()
 	{
-		// $dataSession = $this->session->userdata();
-		// if($dataSession["is_login"] != 1){
-		// 	redirect("/");
-		// }
+		$dataSession = $this->session->userdata();
+		if($dataSession["is_login"] != 1){
+			redirect("/");
+		}
 		
 		$data["version"] = rand(10,1000);
 		$this->load->view('header');
@@ -29,61 +29,61 @@ class Welcome extends CI_Controller {
 
 	public function result()
 	{
-		// $dataSession = $this->session->userdata();
-		// if($dataSession["is_login"] != 1){
-		// 	redirect("/");
-		// }
+		$dataSession = $this->session->userdata();
+		if($dataSession["is_login"] != 1){
+			redirect("/");
+		}
 
-		// date_default_timezone_set("Asia/Jakarta");
-		// $secondsTime = strtotime(date("Y-m-d H:i:s")) - strtotime($dataSession["start_date"]);
-		// $hours   = floor(($secondsTime - ($days * 86400)) / 3600);
-		// $minutes = floor(($secondsTime - ($days * 86400) - ($hours * 3600))/60);
-		// $seconds = floor(($secondsTime - ($days * 86400) - ($hours * 3600) - ($minutes*60)));
+		date_default_timezone_set("Asia/Jakarta");
+		$secondsTime = strtotime(date("Y-m-d H:i:s")) - strtotime($dataSession["start_date"]);
+		$hours   = floor(($secondsTime - ($days * 86400)) / 3600);
+		$minutes = floor(($secondsTime - ($days * 86400) - ($hours * 3600))/60);
+		$seconds = floor(($secondsTime - ($days * 86400) - ($hours * 3600) - ($minutes*60)));
 
-		// $dataInput = array(
-		// 	"name" => $dataSession["name"],
-        // 	"time" => sprintf("%02d", $hours).":".sprintf("%02d", $minutes).":".sprintf("%02d", $seconds),
-        // 	"value" => $secondsTime
-		// );
+		$dataInput = array(
+			"name" => $dataSession["name"],
+        	"time" => sprintf("%02d", $hours).":".sprintf("%02d", $minutes).":".sprintf("%02d", $seconds),
+        	"value" => $secondsTime
+		);
 		
-		// $dataInput = json_encode($dataInput);
+		$dataInput = json_encode($dataInput);
 
-		// $url = "https://moreismore-d8ad8-default-rtdb.asia-southeast1.firebasedatabase.app/data.json";
-		// $ch = curl_init();
-		// curl_setopt($ch, CURLOPT_URL, $url);                               
-		// curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-		// curl_setopt($ch, CURLOPT_POST, 1);
-		// curl_setopt($ch, CURLOPT_POSTFIELDS, $dataInput);
-		// curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: text/plain'));
-		// $jsonResponse = curl_exec($ch);
-		// if(curl_errno($ch))
-		// {
-		// 	echo 'Curl error: ' . curl_error($ch);
-		// }
-		// curl_close($ch);
+		$url = "https://moreismore-d8ad8-default-rtdb.asia-southeast1.firebasedatabase.app/data.json";
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL, $url);                               
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_POST, 1);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $dataInput);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: text/plain'));
+		$jsonResponse = curl_exec($ch);
+		if(curl_errno($ch))
+		{
+			echo 'Curl error: ' . curl_error($ch);
+		}
+		curl_close($ch);
 
-		// session_destroy();
+		session_destroy();
 
-		// $url = "https://moreismore-d8ad8-default-rtdb.asia-southeast1.firebasedatabase.app/data.json";
-		// $ch = curl_init();
-		// curl_setopt_array($ch, array(
-		// 	CURLOPT_URL => $url,
-		// 	CURLOPT_RETURNTRANSFER => true,
-		// 	CURLOPT_ENCODING => '',
-		// 	CURLOPT_MAXREDIRS => 10,
-		// 	CURLOPT_TIMEOUT => 0,
-		// 	CURLOPT_FOLLOWLOCATION => true,
-		// 	CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-		// 	CURLOPT_CUSTOMREQUEST => 'GET',
-		// ));
+		$url = "https://moreismore-d8ad8-default-rtdb.asia-southeast1.firebasedatabase.app/data.json";
+		$ch = curl_init();
+		curl_setopt_array($ch, array(
+			CURLOPT_URL => $url,
+			CURLOPT_RETURNTRANSFER => true,
+			CURLOPT_ENCODING => '',
+			CURLOPT_MAXREDIRS => 10,
+			CURLOPT_TIMEOUT => 0,
+			CURLOPT_FOLLOWLOCATION => true,
+			CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+			CURLOPT_CUSTOMREQUEST => 'GET',
+		));
 
-		// $jsonResponse = curl_exec($ch);
-		// $dataLeader = json_decode($jsonResponse, true);
-		// $dataLeader = array_values($dataLeader);
+		$jsonResponse = curl_exec($ch);
+		$dataLeader = json_decode($jsonResponse, true);
+		$dataLeader = array_values($dataLeader);
 		
-		// usort($dataLeader, function($object1, $object2) {
-		// 	return $object1['value'] < $object2['value'];
-		// });
+		usort($dataLeader, function($object1, $object2) {
+			return $object1['value'] < $object2['value'];
+		});
 
 		$data['leaderboard'] = $dataLeader;
 		$data["time"] = sprintf("%02d", $hours).":".sprintf("%02d", $minutes).":".sprintf("%02d", $seconds);
