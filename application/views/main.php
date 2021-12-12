@@ -22,7 +22,7 @@
     </audio>
     <img src="<?=base_url()?>resources/img/timer.png" class="d-none" alt="" id="seconds" width="70px">
     <p class="text-danger d-none" id="secondsLabel" style="font-size: 14px;z-index: 2;"></p>
-    <img src="<?=base_url()?>resources/plus.gif" class="text-danger d-none" id="thirdLabel" style="position: fixed;font-size: 14px;z-index: 2;display: none;right: 50px;bottom: 50px;width: 110px;" width="70px">
+    <img src="<?=base_url()?>resources/plus.gif?v=2" class="text-danger d-none" id="thirdLabel" style="position: fixed;font-size: 14px;z-index: 2;display: none;right: 50px;bottom: 50px;width: 110px;" width="70px">
     <div class="row justify-content-center">
         <div class="col-12 text-center mainFrame p-0">
             <img src="<?=base_url()?>resources/img/main.gif?v=<?=$version?>" id="mainImg" alt="" style="width: 100%;">

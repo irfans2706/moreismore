@@ -37,7 +37,7 @@ $(document).ready(function() {
                 document.getElementById("mainImg").src = baseUrl + "resources/img/final.jpg";
 
                 setTimeout(function() {
-                    // window.location.replace(baseUrl+"result");
+                    window.location.replace(baseUrl+"result");
                 }, 3000);
 
             }else if(distance >= 6000 && termsPlay){
