@@ -11,6 +11,7 @@ $(document).ready(function() {
     var notif3 = document.getElementById("notif-3");
     var notif4 = document.getElementById("notif-4");
     var talkAudio = document.getElementById("talk");
+    var notifEnd = document.getElementById("endTalk");
     var timerAudio = document.getElementById("timerAudio");
 
     const second = 1000,
@@ -35,6 +36,8 @@ $(document).ready(function() {
                 $("#mainImg").removeClass("distraction1");
                 $("#mainImg").removeClass("distraction2");
                 document.getElementById("mainImg").src = baseUrl + "resources/img/final.jpg";
+                talkAudio.pause()
+                notifEnd.play()
 
                 setTimeout(function() {
                     window.location.replace(baseUrl+"result");
